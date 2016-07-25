@@ -16,5 +16,5 @@ def do_anything():
 example = Example()
 example.on('some_event', do_anything)
 example.trigger('some_event')
->>> anything is done
+# "anything is done" will be printed here
 ```
