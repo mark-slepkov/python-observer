@@ -1,6 +1,6 @@
 __author__ = 'mark'
 import unittest
-from . import observer
+from observer import observer
 
 
 @observer
