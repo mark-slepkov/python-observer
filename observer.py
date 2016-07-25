@@ -13,26 +13,26 @@ def observer(cls: type)->type:
         def on(self, event_name: str, handler: callable)->None:
             try:
                 self.__events[event_name].append(handler)
-            except Exception as e:
+            except KeyError:
                 self.__events[event_name] = [handler]
 
         def once(self, event_name: str, handler: callable)->None:
             try:
                 self.__once_events[event_name].append(handler)
-            except Exception as e:
+            except KeyError:
                 self.__once_events[event_name] = [handler]
 
         def trigger(self, event_name: str, *args, **kwargs):
             try:
                 for handler in self.__events[event_name]:
                     handler(*args, **kwargs)
-            except Exception as e:
+            except KeyError:
                 pass
             try:
                 for handler in self.__once_events[event_name]:
                     handler(*args, **kwargs)
                 self.__once_events[event_name].clear()
-            except Exception as e:
+            except KeyError:
                 pass
 
         def off(self, event_name: str, handler: callable=None):
