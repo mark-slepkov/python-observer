@@ -2,7 +2,7 @@ __author__ = 'mark'
 
 import os
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, 'README.txt')) as f:
+with open(os.path.join(here, 'README.md')) as f:
     README = f.read()
 
 
