@@ -4,7 +4,7 @@ A short library which is implements Observer pattern for any classes
 Using
 -----
 
-```
+``` python
 from observer import observer
 @observer
 class Example(object):
