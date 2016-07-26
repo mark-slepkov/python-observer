@@ -5,6 +5,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.md')) as f:
     README = f.read()
 
+with open(os.path.join(here, 'LICENSE')) as f:
+    LICENSE = f.read()
+
 
 from setuptools import setup, find_packages
 requires = []
@@ -26,4 +29,5 @@ setup(name='observer',
       zip_safe=False,
       install_requires=requires,
       dependency_links=dependency_links,
+      license=LICENSE
       )
