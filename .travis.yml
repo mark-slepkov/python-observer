@@ -3,7 +3,5 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-  - "pypy"
 install: true
-
 script: nosetests

@@ -79,3 +79,28 @@ class ObserverTest(unittest.TestCase):
         self.assertEqual(self.marker, None)
         example_1.trigger('some_event')
         self.assertEqual(self.marker, True)
+
+    def test_trigger(self):
+        self.marker = None
+        self.kmarker = None
+        self.marker_1 = None
+        def handler(*args, **kwargs):
+            self.marker = args[0]
+            self.kmarker = kwargs['marker']
+            return
+
+        def handler_1(some_arg):
+            self.marker_1 = some_arg
+        example = Example()
+
+        example.on('some_event', handler)
+        example.trigger('some_event', 1)
+        self.assertEqual(self.marker, 1, 3)
+        self.assertEqual(self.kmarker, None)
+        example.trigger('some_event', 2, marker=3)
+        self.assertEqual(self.marker, 2)
+        self.assertEqual(self.kmarker, 3)
+
+        example.on('event', handler_1)
+        example.trigger('event', 500)
+        self.assertEqual(self.marker_1, 500)
