@@ -13,7 +13,7 @@ from setuptools import setup, find_packages
 requires = []
 dependency_links = []
 setup(name='observer',
-      version='1.0.0',
+      version='1.0.5',
       description='A short library which is implements Observer pattern for any classes',
       long_description=README + '\n\n',
       classifiers=[
